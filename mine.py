@@ -1,22 +1,64 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#   __  __ _____ _   _ ______  _______          ________ _____  ______ _____    #
+#  |  \/  |_   _| \ | |  ____|/ ____\ \        / /  ____|  __ \|  ____|  __ \   #
+#  | \  / | | | |  \| | |__  | (___  \ \  /\  / /| |__  | |__) | |__  | |__) |  #
+#  | |\/| | | | | . ` |  __|  \___ \  \ \/  \/ / |  __| |  ___/|  __| |  _  /   #
+#  | |  | |_| |_| |\  | |____ ____) |  \  /\  /  | |____| |    | |____| | \ \   #
+#  |_|  |_|_____|_| \_|______|_____/    \/  \/   |______|_|    |______|_|  \_\  #
+#                                                                               #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+                # # # # # # # # # # # # # # # # # # # # # # # # #
+                #      A   B   C   D   E   F   G   H   I   J    #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                #  1 |   |   |   |   |   |   |   |   |   |   |  #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                #  2 |   |   |   |   |   |   |   |   |   |   |  #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                #  3 |   |   |   |   |   | 1 | 1 | 4 |   |   |  #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                #  4 |   |   |   |   | 2 | 1 | 0 | 2 | * |   |  #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                #  5 |   |   |   |   | 2 | 0 | 0 | 1 |   |   |  #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                #  6 |   | 2 | 2 | . | 2 | 0 | 0 | 1 |   |   |  #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                #  7 |   | 2 | 1 | 1 | 1 | 0 | 1 | 2 |   |   |  #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                #  8 | 1 | 1 | 0 | 0 | 0 | 0 | 1 | . |   |   |  #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                #  9 | 0 | 0 | 0 | 1 | 1 | 2 | 2 |   |   |   |  #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                #  10| 0 | 0 | 0 | 1 |   |   |   |   |   |   |  #
+                #    +---+---+---+---+---+---+---+---+---+---+  #
+                # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
 """
-  __  __ _____ _   _ ______  _______          ________ _____  ______ _____  
- |  \/  |_   _| \ | |  ____|/ ____\ \        / /  ____|  __ \|  ____|  __ \ 
- | \  / | | | |  \| | |__  | (___  \ \  /\  / /| |__  | |__) | |__  | |__) |
- | |\/| | | | | . ` |  __|  \___ \  \ \/  \/ / |  __| |  ___/|  __| |  _  / 
- | |  | |_| |_| |\  | |____ ____) |  \  /\  /  | |____| |    | |____| | \ \ 
- |_|  |_|_____|_| \_|______|_____/    \/  \/   |______|_|    |______|_|  \_\ 
-                                                                            
+minesweper, a minesweeper game in pure python without liberaries by natte pappelo 2.5.2025 - 18.2.2026
 
-minesweper, a minesweeper game in pure python without liberaries by natte pappelo 2.5.2025 - 15.2.2026
-
+Becouse of the limitation of no liberaries it needs to be terminal-based and cant have colors. Also the player
+needs to give a seed to the randomizer by spamming the keyboard. 
 """
 
 
 
 
-"""   SETTINGS   """
 
-# the size of the playing grid
+# # # # # # # # # # # # # # # # # # # # # # #
+#    _________________________  ___________ #
+#   / __/ __/_  __/_  __/  _/ |/ / ___/ __/ #    
+#  _\ \/ _/  / /   / / _/ //    / (_ /\ \   #
+# /___/___/ /_/   /_/ /___/_/|_/\___/___/   #
+#                                           #
+# # # # # # # # # # # # # # # # # # # # # # #
+
+# (SETTINGS)
+
+
+
+# the size of the playing grid    [columns, rows]
 size = [10, 10]
 
 # mine dencity  (higher number = less mines) (Needs to be an intager)
@@ -34,7 +76,8 @@ undugSign = " "
 # How a dug square with no mines suorondig it is shown on the grid
 zeroSign = "0"
 
-# What character you add at the end of the input to flag instead of diging (cant be a letter used by the columns or rows)
+# What character you add at the end of the input to flag instead of diging
+# (cant be a character used by the columns or rows) (note that this isnt case sensitive)
 flagChar = "."
 
 
@@ -59,7 +102,7 @@ if size[0] < 1 or size[1] < 1:
     exit()
 
 if size[0] > 26:
-    print("\nERROR: Size too big. Currently Minesweper doesnt support a wider screen than to Z\n")
+    print("\nERROR: Size too big. (Currently Minesweper doesnt support a wider screen than to Z)\n")
     input("press enter to close")
     exit()
 
@@ -67,18 +110,15 @@ if size[0] > 26:
 
 
 
-# frågar efter seed
-seed = input("Spam lite på tangetbole: ")
+# Asks for a seed
+seed = input("Spam some on the keyboard and press enter: ")
 
 
 # RANDOM BOOLEAN GENERATOR
 count = 0
-
 def boolRandom():
-    global seed
-    global count
+    global seed, count
     count = count + 1
-
     return (hash(str(count) + str(seed)) // 10) % dencity == 0
 
 
@@ -89,8 +129,7 @@ def printField():
     global squareBoxes, size, flags, dug, mineNums
 
 
-
-    # prints the lethers up at the top
+    # prints the letters up at the top
     if squareBoxes:
         print("    ", end="")
     else:
@@ -104,8 +143,6 @@ def printField():
     print()
 
 
-
-
     # prints the line at the top
     print("  +", end="")
 
@@ -117,8 +154,7 @@ def printField():
     print()
 
 
-
-    # skriver ut spelfältet
+    # Writes out the playing field
     for y in range(size[1]):
         if y + 1 < 10:
             print(str(y + 1) + " |", end="")
@@ -165,47 +201,66 @@ def printField():
 
 
 columns = []
-for i in range(size[0]):
+for i in range(size[0]):                # generates a list of all the column letters
     columns.append(chr(i + 97))
 
 
 
 # FUNCTION FOR ASKING THE PLAYER WHAT THEY WANT TO DO
-def question():
+def question(withFlag=True):
 
     global flags, flagCount, mines, dug
 
-
-    inp = input('Van vill du gräv  (om du lägger "' + flagChar + '" i slute så flaggar du): ').lower()
-
-    flag = flagChar.lower() in inp         # detect if the player wants to flag
-    inp = inp.replace(flagChar.lower(), "")      # cleans away the flag char
-    
-    if inp[0] in columns:
-        x = ord(inp[0]) - 97
-        y = int(inp[1:]) - 1
-
-    elif inp[-1] in columns:
-        x = ord(inp[-1]) - 97
-        y = int(inp[:-1]) - 1
-
-
-
-    if flag:   # om spelaren vill flagga
-        if flags[y][x]:   # om en flagga ska plockas bort
-            flagCount -=1
+    while 1:
+        if withFlag:
+            inp = input('Where do you want to dig?  (you flag by putting a "' + flagChar + '" at the end): ').lower()
         else:
+            inp = input('Where do you want to dig?: ').lower()
+
+        if len(inp) < len(str(size[1])) + 3 and len(inp) > 1:   # if the input has the correct lenght
+            flag = flagChar.lower() in inp                      # detect if the player wants to flag
+            inp = inp.replace(flagChar.lower(), "")             # cleans away the flag char
+            
+            if inp[0] in columns:                 # is the letter defining the column first
+                x = ord(inp[0]) - 97
+                try:
+                    y = int(inp[1:]) - 1
+                    if y >0 and y <=size[1]:
+                        break
+                except:
+                    pass
+                
+
+            elif inp[-1] in columns:              # is the letter defining the column last
+                x = ord(inp[-1]) - 97
+                try:
+                    y = int(inp[:-1]) - 1
+                    if y >0 and y <=size[1]:
+                        break
+                except:
+                    pass   
+        
+
+        print("ERROR: The input was not correctly entered")
+
+
+
+    if flag:                # does the player want to flag
+        if flags[y][x]:     # should a flag be removed instead of adding
+            flagCount -=1
+            flags[y][x] = False
+        elif not(dug[y][x]):
             flagCount +=1
-        flags[y][x] = not(flags[y][x])
+            flags[y][x] = True
         return None
     
-    else: # om spelaren vill gräv
+    else: # if the player wants to dig
         return [y,x]
 
 
 
 
-def placeMines():  # randomiserar ut minorna och lagar lite varierande variabler
+def placeMines():  # randomizes the mines and makes some wierd variables.
     global mines, mineCount, mineNums, flags, dug
 
     mines = []
@@ -234,30 +289,30 @@ def placeMines():  # randomiserar ut minorna och lagar lite varierande variabler
 
 def main():
     global flagCount
-    placeMines()  # görs endast så att printField() ska fungera, denna randomising körs över sedan
+    placeMines()  # this is only done so printField() will work, this randomisation will be run over later.
     printField()
 
+    flagCount = 0
 
-
-    while 1:                     # fråga efter firstDig tills man får ett vättigt svar
-        firstDig = question()
+    while 1:                     # asks for a first dig till the answer is alowed
+        firstDig = question(False)
         if firstDig == None:
-            print("Du måste gräva det första du gör")
+            printField()
+            #print("Your first action must be a dig")
         else:
             break
 
 
 
 
-    # RANDOMISA UT MINORNA TILLS FIRSTDIG ÄR EN NOLLA
+    # RANDOMISES THE MINES TILL FIRSTDIG IS A ZERO
 
-    isRandomising = True
-
-    while isRandomising:
+    while 1:
 
         placeMines()
+        
 
-        # kalkylerar siffrorna
+        # calculates the numbers 
         for y in range(len(mines)):
             for x in range(len(mines[0])):
                 if mines[y][x] == 0:
@@ -288,17 +343,17 @@ def main():
                         mineNums[y][x] = mineNums[y][x] + mines[y + 1][x + 1]
 
 
-        if mineNums[firstDig[0]][firstDig[1]] == 0:  # fortsätt randomisa tills firstDig är en nolla
-            isRandomising = False
+        if mineNums[firstDig[0]][firstDig[1]] == 0:  # loop if firstDig is a zero
+            break
 
 
 
-    dug[firstDig[0]][firstDig[1]] = True  # faktistk gräv firstDig
+    dug[firstDig[0]][firstDig[1]] = True  # dig firstDig fr
 
 
 
 
-    flagCount = 0
+    
 
     running = True
     stop = False
@@ -351,7 +406,7 @@ def main():
                             dug[y + 1][x + 1] = True
 
                         
-        print("antal minor kvar:", mineCount - flagCount)
+        print("mines left:", mineCount - flagCount)
 
         
 
@@ -376,17 +431,20 @@ def main():
 
 
         
-        if dig != None:   # ifall inputten innehöll en gräv förfrågan
+        if dig != None:   # if the input consisted of a dig request
+
+            if flags[dig[0]][dig[1]]:
+                print("you tried to dig a flaged squere".upper())
 
             
-            if dug[dig[0]][dig[1]]:  # ifall man gräver en färdigt grävd ruta för att gräva grannarna
+            elif dug[dig[0]][dig[1]]:  # if the player digs an already dug squere to dig its neighbours
 
 
                 x= dig[1]
                 y= dig[0]
 
 
-                # räknar hur många flaggor den valda rutan har runt sig
+                # counts how many flags suround the selected squere
                 neighourFlags = 0
 
                 if y - 1 > -1 and x - 1 > -1 and flags[y-1][x-1]:    
@@ -415,7 +473,7 @@ def main():
 
 
 
-                # gräver grannarna om det finns rätt antal flaggor
+                # digs the neighbours if there is correct amount of flaged neighbours
                 if neighourFlags == mineNums[y][x]: 
                     if y - 1 > -1 and x - 1 > -1 and (flags[y-1][x-1] == False):    
                         dug[y-1][x-1] = True
@@ -483,7 +541,4 @@ while 1:
         break
 
     print("\n")
-
-
-
 
