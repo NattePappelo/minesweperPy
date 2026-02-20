@@ -36,7 +36,7 @@
 
 
 """
-minesweper, a minesweeper game in pure python without liberaries by natte pappelo 2.5.2025 - 18.2.2026
+minesweper, a minesweeper game in pure python without liberaries by natte pappelo 2.5.2025 - 20.2.2026
 
 Becouse of the limitation of no liberaries it needs to be terminal-based and cant have colors. Also the player
 needs to give a seed to the randomizer by spamming the keyboard. 
@@ -225,7 +225,7 @@ def question(withFlag=True):
                 x = ord(inp[0]) - 97
                 try:
                     y = int(inp[1:]) - 1
-                    if y >0 and y <=size[1]:
+                    if y >=0 and y <=size[1]:
                         break
                 except:
                     pass
@@ -235,7 +235,7 @@ def question(withFlag=True):
                 x = ord(inp[-1]) - 97
                 try:
                     y = int(inp[:-1]) - 1
-                    if y >0 and y <=size[1]:
+                    if y >=0 and y <=size[1]:
                         break
                 except:
                     pass   
@@ -541,4 +541,5 @@ while 1:
         break
 
     print("\n")
+
 
